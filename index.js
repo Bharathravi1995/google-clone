@@ -1,83 +1,76 @@
-window.luckyText = "I'm Feeling Lucky";
+window.onload = () => {
+  bindInputKeyPress();
+  bindSearchBtnClick();
+  bindLuckyBtnHover();
+  bindLuckyBtnClick();
+};
 
-        function getRandomInt(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-        }
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+}
 
+function bindSearchBtnClick() {
+  document.getElementById("search_btn").addEventListener("click", () => {
+    let inputValue = document.getElementById("search_input").value;
+    searchKeyword(inputValue);
+  });
+}
 
-        function bindEvents() {
-            bindInputKeyPress();
-            bindSearchBtnClick();
-            bindLuckyBtnHover();
-            bindLuckyBtnClick();
-        }
+function bindInputKeyPress() {
+  let inputElement = document.getElementById("search_input");
 
-        function bindSearchBtnClick() {
-            document.getElementById('search_btn').addEventListener("click", () => {
-                let inputValue = document.getElementById("search_input").value;
-                    searchKeyword(inputValue);
-            });
-        }
+  inputElement.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      searchKeyword(inputElement.value);
+    }
+  });
+}
 
-        function bindInputKeyPress() {
-            let inputElement = document.getElementById("search_input");
+function bindLuckyBtnClick() {
+  document.getElementById("lucky_btn").addEventListener("click", () => {
+    searchKeyword(window.luckyText);
+  });
+}
 
-            inputElement.addEventListener("keypress", function (event) {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    searchKeyword(inputElement.value);
-                }
-            });
-        }
+function searchKeyword(message) {
+  if (message)
+    window.location.href = `https://www.google.com/search?q=${message}`;
+}
 
-        function bindLuckyBtnClick() {
-            document.getElementById('lucky_btn').addEventListener("click", () => {
-                searchKeyword(window.luckyText);
-            });
-        }
+function bindLuckyBtnHover() {
+  let luckyBtn = document.getElementById("lucky_btn"),
+    luckyButtonUlElement = document.getElementById("lucky_btn_ul"),
+    btnTimeID;
 
-        function searchKeyword(message) {
-            if(message)
-            window.location.href = `https://www.google.com/search?q=${message}`;
-        }
+  luckyBtn.addEventListener("mouseenter", () => {
+    btnTimeID = setTimeout(function () {
+      let min = 0,
+        max = 10,
+        randomIndex = getRandomInt(min, max),
+        listElements = luckyButtonUlElement.querySelectorAll("li");
+      if (randomIndex === 5) {
+        randomIndex = 10;
+      }
+      let topPostion = -36 * randomIndex + 1;
 
-        function bindLuckyBtnHover() {
-            let luckyBtn = document.getElementById('lucky_btn'),
-                luckyButtonUlElement = document.getElementById("lucky_btn_ul"),
-                btnTimeID;
+      luckyButtonUlElement.animate({ top: `${topPostion}px` }, 300);
+      setTimeout(function () {
+        luckyButtonUlElement.style.top = `${topPostion}px`;
+      }, 300);
 
-            luckyBtn.addEventListener('mouseenter', () => {
+      luckyBtn.style.width = `${listElements[randomIndex].offsetWidth}px`;
+      window.luckyText = listElements[randomIndex].innerHTML;
+    }, 200);
+  });
+  luckyBtn.addEventListener("mouseleave", () => {
+    clearTimeout(btnTimeID);
 
-                console.log("mouseenter");
-                btnTimeID = setTimeout(function () {
-                    let max = 12, min = 1,
-                        randomIndex = getRandomInt(0, 10),
-                        listElements = luckyButtonUlElement.querySelectorAll("li");
-                    if (randomIndex === 5) {
-                        randomIndex = 10;
-                    }
-                    let topPostion = (-36 * randomIndex) + 1;
-
-
-                    luckyButtonUlElement.animate({ top: `${topPostion}px` }, 300);
-                    setTimeout(function () {
-                        luckyButtonUlElement.style.top = `${topPostion}px`;
-                    }, 300);
-
-                    luckyBtn.style.width = `${listElements[randomIndex].offsetWidth}px`;
-                    window.luckyText = listElements[randomIndex].innerHTML;
-                }, 200);
-            });
-            luckyBtn.addEventListener("mouseleave", () => {
-                console.log("mouseleave");
-
-                clearTimeout(btnTimeID);
-
-                setTimeout(function () {
-                    luckyButtonUlElement.style.top = '-179px'; // this is the original position
-                    luckyBtn.style.width = '130.5px'; // reset the original width of the button
-                }, 200);
-            });
-        }
+    setTimeout(function () {
+      luckyButtonUlElement.style.top = "-179px"; // this is the original position
+      luckyBtn.style.width = "130.5px"; // reset the original width of the button
+    }, 200);
+  });
+}

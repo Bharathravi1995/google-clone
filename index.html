@@ -1,101 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
+    <script type="text/javascript" src="./index.js"></script>
+  </head>
 
-    <script src="index.js">
-
-    </script>
-</head>
-
-<body onload="bindEvents()">
+  <body>
     <header>
-        <nav class="navbar">
-            <ul class="left-nav-items">
-                <li><a href="">About</a></li>
-                <li><a href="">Store</a></li>
-            </ul>
-            <ul class="right-nav-items">
-                <li><a href="">Gmail</a></li>
-                <li><a href="">Images</a></li>
-                <li class="circle-shadow"><span class="material-symbols-outlined">
-                        apps
-                    </span></li>
-                <button class="sign-in-btn">Sign in</button>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <ul class="left-nav-items">
+          <li><a href="">About</a></li>
+          <li><a href="">Store</a></li>
+        </ul>
+        <ul class="right-nav-items">
+          <li><a href="">Gmail</a></li>
+          <li><a href="">Images</a></li>
+          <li class="circle-shadow">
+            <span class="material-symbols-outlined">
+              apps
+            </span>
+          </li>
+          <button class="sign-in-btn">Sign in</button>
+        </ul>
+      </nav>
     </header>
     <main class="main-container">
-        <div class="logo-wrapper">
-            <img src="./assets/logo.png" alt="Google Logo">
-        </div>
-        <div class="search-container">
-            <span class="material-symbols-outlined search-icon">
-                search
-            </span>
+      <div class="logo-wrapper">
+        <img src="assets/logo.png" alt="Google Logo" />
+      </div>
+      <div class="search-container">
+        <span class="material-symbols-outlined search-icon">
+          search
+        </span>
 
-            <input type="text" id="search_input">
-            <span class="material-symbols-outlined mic-icon ">
-                mic
-            </span>
-        </div>
-        <div class="btns">
-            <button id="search_btn">Google Search</button>
-            <button id="lucky_btn">
-                <ul id="lucky_btn_ul">
-                    <li>I'm Feeling Stellar</li>
-                    <li>I'm Feeling Artistic</li>
-                    <li>I'm Feeling Wonderful</li>
-                    <li>I'm Feeling Curious</li>
-                    <li>I'm Feeling Hungry</li>
-                    <li>I'm Feeling Lucky</li>
-                    <li>I'm Feeling Doodley</li>
-                    <li>I'm Feeling Generous</li>
-                    <li>I'm Feeling Trendy</li>
-                    <li>I'm Feeling Puzzled</li>
-                    <li>I'm Feeling Playful</li>
-                </ul>
-            </button>
-        </div>
-        <div class="lang">Google offered in: <a href="">English</a></div>
+        <input type="text" id="search_input" autocomplete="off" />
+        <span class="material-symbols-outlined mic-icon">
+          mic
+        </span>
+      </div>
+      <div class="btns">
+        <button id="search_btn">Google Search</button>
+        <button id="lucky_btn">
+          <ul id="lucky_btn_ul">
+            <li>I'm Feeling Stellar</li>
+            <li>I'm Feeling Artistic</li>
+            <li>I'm Feeling Wonderful</li>
+            <li>I'm Feeling Curious</li>
+            <li>I'm Feeling Hungry</li>
+            <li>I'm Feeling Lucky</li>
+            <li>I'm Feeling Doodley</li>
+            <li>I'm Feeling Generous</li>
+            <li>I'm Feeling Trendy</li>
+            <li>I'm Feeling Puzzled</li>
+            <li>I'm Feeling Playful</li>
+          </ul>
+        </button>
+      </div>
+      <div class="lang">Google offered in: <a href="">English</a></div>
     </main>
     <footer>
-        <div class="upper-footer">
-            <span>Germany</span>
-        </div>
-        <div class="lower-footer">
-            <ul class="left-lower-footer-items">
-                <li>
-                    <a href="">Advertising</a>
-                </li>
-                <li>
-                    <a href="">Business</a>
-                </li>
-                <li>
-                    <a href="">How Search works</a>
-                </li>
-            </ul>
-            <ul class="right-lower-footer-items">
-                <li>
-                    <a href="">Privacy</a>
-                </li>
-                <li>
-                    <a href="">Terms</a>
-                </li>
-                <li>
-                    <a href="">Settings</a>
-                </li>
-            </ul>
-        </div>
+      <div class="upper-footer">
+        <span>Germany</span>
+      </div>
+      <div class="lower-footer">
+        <ul class="left-lower-footer-items">
+          <li>
+            <a href="">Advertising</a>
+          </li>
+          <li>
+            <a href="">Business</a>
+          </li>
+          <li>
+            <a href="">How Search works</a>
+          </li>
+        </ul>
+        <ul class="right-lower-footer-items">
+          <li>
+            <a href="">Privacy</a>
+          </li>
+          <li>
+            <a href="">Terms</a>
+          </li>
+          <li>
+            <a href="">Settings</a>
+          </li>
+        </ul>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
